@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py2k or py35]
 
@@ -26,7 +26,7 @@ requirements:
     - setuptools
     - wheel
     - cython
-    - numpy 1.16.*
+    - numpy 1.19.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
