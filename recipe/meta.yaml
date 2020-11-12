@@ -1,7 +1,7 @@
 {% set name = "spacy-pkuseg" %}
 {% set modulename = "spacy_pkuseg" %}
-{% set version = "0.0.27" %}
-{% set sha256sum = "0ab597e0eea9357ffa21e9ccba0f06af07db6b48cbe3cbb811916b68f5284a38" %}
+{% set version = "0.0.28" %}
+{% set sha256sum = "9a603f6da63da21beb338d5a9392fe1bc094ad241e642af398c028343e17fcd2" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py2k or py35]
 
