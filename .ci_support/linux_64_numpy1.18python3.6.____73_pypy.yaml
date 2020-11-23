@@ -10,6 +10,8 @@ cxx_compiler_version:
 - '7'
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
+numpy:
+- '1.18'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -18,3 +20,6 @@ python:
 - 3.6.* *_73_pypy
 target_platform:
 - linux-64
+zip_keys:
+- - python
+  - numpy
