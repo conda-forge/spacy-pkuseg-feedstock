@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -29,13 +29,16 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - srsly >=2.3.0,<3.0.0
+    - cython
 
 test:
   imports:
     - {{ modulename }}
   requires:
     - pytest
+    - pip
   commands:
+    - pip check
     - python -m pytest --tb=native --pyargs {{ modulename }}
 
 about:
