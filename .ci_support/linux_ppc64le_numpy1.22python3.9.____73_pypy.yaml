@@ -7,19 +7,20 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '10'
+- '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le
 numpy:
-- '1.20'
+- '1.22'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.9.* *_73_pypy
 target_platform:
 - linux-ppc64le
 zip_keys:
 - - python
   - numpy
+  - channel_sources

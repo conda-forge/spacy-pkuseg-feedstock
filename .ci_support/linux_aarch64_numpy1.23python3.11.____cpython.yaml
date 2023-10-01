@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '10'
+- '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 numpy:
@@ -27,3 +27,4 @@ target_platform:
 zip_keys:
 - - python
   - numpy
+  - channel_sources
