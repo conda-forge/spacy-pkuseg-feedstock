@@ -8,16 +8,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/{{ name }}/{{ modulename }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/{{ name }}/{{ modulename }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
@@ -27,7 +28,6 @@ requirements:
     - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - srsly >=2.3.0,<3.0.0
     - cython
 
