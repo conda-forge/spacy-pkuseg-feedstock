@@ -1,14 +1,14 @@
 {% set name = "spacy-pkuseg" %}
 {% set modulename = "spacy_pkuseg" %}
-{% set version = "0.0.33" %}
-{% set sha256sum = "f13156ac4e04460f1ac35edfd036e99704dbbad19ad0a39b06c340f802a29e62" %}
+{% set version = "1.0.0" %}
+{% set sha256sum = "33531ea8e13fc09ebe3b40bd97e84d07ccd5a1fe67fa8e84173769a25ac03158" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/{{ name }}/{{ modulename }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/{{ name }}/{{ modulename }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 
 build:
@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
