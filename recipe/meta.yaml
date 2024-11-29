@@ -10,12 +10,16 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
 
 requirements:
   build:
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
   host:
     - cython
     - numpy
@@ -37,7 +41,7 @@ test:
     - pip
   commands:
     - pip check
-    - python -m pytest --tb=native --pyargs spacy_pkuseg
+    - python -m pytest -vv --color=yes --tb=native --pyargs spacy_pkuseg
 
 about:
   home: http://github.com/explosion/spacy-pkuseg
