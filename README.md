@@ -9,10 +9,6 @@ Package license: MIT
 
 Summary: PKUSeg Chinese word segmentation toolkit for spaCy
 
-Development: https://github.com/explosion/spacy-pkuseg
-
-Documentation: https://github.com/explosion/spacy-pkuseg
-
 Current build status
 ====================
 
