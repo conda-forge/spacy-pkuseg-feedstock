@@ -1,45 +1,46 @@
-{% set name = "spacy-pkuseg" %}
-{% set modulename = "spacy_pkuseg" %}
-{% set version = "0.0.33" %}
-{% set sha256sum = "f13156ac4e04460f1ac35edfd036e99704dbbad19ad0a39b06c340f802a29e62" %}
+{% set version = "1.0.0" %}
 
 package:
-  name: {{ name }}
+  name: spacy-pkuseg
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/{{ name }}/{{ modulename }}-{{ version }}.tar.gz
-  sha256: {{ sha256sum }}
+  url: https://pypi.org/packages/source/s/spacy-pkuseg/spacy_pkuseg-{{ version }}.tar.gz
+  sha256: 33531ea8e13fc09ebe3b40bd97e84d07ccd5a1fe67fa8e84173769a25ac03158
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
   host:
-    - python
-    - pip
-    - setuptools
-    - wheel
     - cython
     - numpy
+    - pip
+    - python
+    - setuptools
+    - wheel
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy
     - srsly >=2.3.0,<3.0.0
-    - cython
 
 test:
   imports:
-    - {{ modulename }}
+    - spacy_pkuseg
   requires:
     - pytest
     - pip
   commands:
     - pip check
-    - python -m pytest --tb=native --pyargs {{ modulename }}
+    - python -m pytest -vv --color=yes --tb=native --pyargs spacy_pkuseg
 
 about:
   home: http://github.com/explosion/spacy-pkuseg
@@ -48,11 +49,9 @@ about:
   license_file: LICENSE
   summary: PKUSeg Chinese word segmentation toolkit for spaCy
 
-  doc_url: https://github.com/explosion/spacy-pkuseg
-  dev_url: https://github.com/explosion/spacy-pkuseg
-
 extra:
   recipe-maintainers:
     - ines
     - honnibal
     - adrianeboyd
+    - conda-forge/spacy
