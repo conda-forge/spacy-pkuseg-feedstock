@@ -54,3 +54,4 @@ extra:
     - ines
     - honnibal
     - adrianeboyd
+    - conda-forge/spacy
