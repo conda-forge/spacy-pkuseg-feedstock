@@ -324,6 +324,7 @@ Feedstock Maintainers
 =====================
 
 * [@adrianeboyd](https://github.com/adrianeboyd/)
+* [@conda-forge/spacy](https://github.com/orgs/conda-forge/teams/spacy/)
 * [@honnibal](https://github.com/honnibal/)
 * [@ines](https://github.com/ines/)
 
