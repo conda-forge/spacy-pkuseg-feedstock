@@ -1,4 +1,4 @@
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: spacy-pkuseg
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/spacy-pkuseg/spacy_pkuseg-{{ version }}.tar.gz
-  sha256: 33531ea8e13fc09ebe3b40bd97e84d07ccd5a1fe67fa8e84173769a25ac03158
+  sha256: b48078775afff34914375344d56f70a37ec044188ccaece3f70806fd322a47eb
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
 
 requirements:
